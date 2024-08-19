@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<%- include('../partials/head') %>
+
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+    <!-- /.navbar -->
+  <%- include('../partials/header') %>
+
+  <%- include('../partials/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Conecta o celular</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">              
+                <div class="row mt-4">
+                  <div class="col-sm-4">
+                    <div class="social-auth-links text-center mt-2 mb-3">
+                      <a href="#" class="btn btn-block btn-primary">
+                        <i ></i> Gerar QRcode
+                      </a>      
+                    </div>  
+                  </div>
+                  <div class="col-sm-4">
+                   
+                  </div>
+                  <div class="col-sm-4">
+                   
+                  </div>
+                </div>
+                <div class="row mt-4">
+                  <div class="col-sm-4">
+                    <div class="position-relative">
+                      <img style="height: 300px;" src="../../dist/img/qrcode.png" alt="Photo 1"  class="img-fluid">
+                      <div class="ribbon-wrapper ribbon-lg">                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="position-relative" style="font-size: 20px;">                     
+                      <br> Celular ja esta conectado com sucesso <br />
+                      <small>Conecxão foi bem estabelecida</small>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">                  
+                   
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+
+
+    </section>
+  </div>
+  <!-- /.content-wrapper -->
+  <%- include('../partials/footer') %>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<%- include('../partials/scripts') %>
+</body>
+</html>

@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.render('produtos/produto', { title: 'Produtos' });
+router.get('/novo', (req, res) => {
+  res.render('produto/novo', { title: 'Produto' });
 });
 
 router.get('/lista', (req, res) => {
-  res.render('produtos/lista', { title: 'Produtos' });
+  res.render('produto/lista', { title: 'Produto' });
+});
+
+router.get('/editar', (req, res) => {
+  res.render('produto/editar', { title: 'Produto' });
 });
 
 module.exports = router;

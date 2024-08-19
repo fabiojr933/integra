@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<%- include('../partials/head') %>
+
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+    <!-- /.navbar -->
+  <%- include('../partials/header') %>
+
+  <%- include('../partials/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+
+
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Quick Example</h3>
+                <div style="margin-left: 91%;">
+                  <a href="/empresa/lista"><span class="btn bg-primary">Voltar</span></a>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col">
+                    <label for="">Nome da empresa</label>
+                    <input type="text" name="nome" class="form-control"  placeholder="nome da empresa" required>
+                  </div>
+                  <div class="col">
+                  <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                  </div>
+                </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                  <label for="">Telefone</label>
+                  <input type="text" name="telefone" class="form-control"  placeholder="Telefone" required>
+                </div>
+                <div class="col">
+                <div class="form-group">
+                  <label for="">Instance</label>
+                  <input type="text" name="instance" class="form-control" placeholder="Instance" required>
+                </div>
+              </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                <label for="">API key</label>
+                <input type="text" name="apikey" class="form-control"  placeholder="API key" required>
+              </div>
+              <div class="col">
+              <div class="form-group">
+                <label for="">Base url</label>
+                <input type="text" name="base_url" class="form-control" placeholder="Base url" required>
+              </div>
+            </div>
+          </div>
+            <div class="row">
+              <div class="col">
+              <label for="">Senha</label>
+              <input type="text" name="senha" class="form-control"  placeholder="Senha" required>
+            </div>
+            <div class="col">
+            <div class="form-group">
+              <label for="">Ativo</label>
+              <select class="form-control select2" name="ativo" style="width: 100%;" required>              
+                <option>Sim</option>
+                <option>Não</option>               
+              </select>
+            </div>
+          </div>  
+        </div>        
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>               
+      </div><!-- /.container-fluid -->
+    </section>
+  </div>
+  <!-- /.content-wrapper -->
+  <%- include('../partials/footer') %>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<%- include('../partials/scripts') %>
+</body>
+</html>

@@ -4,3 +4,5 @@ npm i
 knex migrate:make create_empresa --env dev
 knex migrate:latest --env dev
 knex migrate:rollback --env dev
+
+knex seed:run --env dev

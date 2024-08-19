@@ -1,7 +1,10 @@
 const express = require('express');
 const path = require('path');
-const indexRouter = require('./routes/index');
-const produtoRoute = require('./routes/produto');
+const produtoRouter = require('./routes/produto');
+const empresaRoute = require('./routes/empresa');
+const loginRoute = require('./routes/login');
+const subprodutoRouter = require('./routes/subproduto');
+const telefoneRouter = require('./routes/telefone');
 
 const app = express();
 
@@ -10,8 +13,11 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/produto', produtoRoute);
+app.use('/', loginRoute);
+app.use('/empresa', empresaRoute);
+app.use('/produto', produtoRouter);
+app.use('/subproduto', subprodutoRouter);
+app.use('/telefone', telefoneRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

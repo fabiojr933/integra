@@ -53,7 +53,7 @@ class empresaController {
   }
   async listar_id(req, res) {
     try {
-      var id = Number(req.params.id);
+      var id = req.params.id;
       var dados = await empresa.listar_id(id);
       return res.status(200).json(dados);
     } catch (error) {
