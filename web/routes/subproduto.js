@@ -2,15 +2,31 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/novo', (req, res) => {
-  res.render('subproduto/novo', { title: 'Subproduto' });
+  const nome = req.session.empresa;
+  if(nome){
+    res.render('subproduto/novo', { empresa: nome.nome });
+  }else{
+    res.render('login', { error: 'Faça login' });
+  }  
+ 
 });
 
 router.get('/lista', (req, res) => {
-  res.render('subproduto/lista', { title: 'Subproduto' });
+  const nome = req.session.empresa;
+  if(nome){
+    res.render('subproduto/lista', { empresa: nome.nome });
+  }else{
+    res.render('login', { error: 'Faça login' });
+  }  
 });
 
 router.get('/editar', (req, res) => {
-  res.render('subproduto/editar', { title: 'Subproduto' });
+  const nome = req.session.empresa;
+  if(nome){
+    res.render('subproduto/editar', { empresa: nome.nome });
+  }else{
+    res.render('login', { error: 'Faça login' });
+  } 
 });
 
 module.exports = router;

@@ -9,6 +9,7 @@ const produto = new Produto();
 const subproduto = new SubProduto();
 
 router.get('/empresa', middleware.Autorizacao, empresa.empresaLista);   // lista todas as empresas
+router.get('/empresa/autenticar', middleware.Autorizacao, empresa.autenticar);   // lista todas as empresas
 router.get('/empresa/:id', middleware.Autorizacao, empresa.listar_id);  // lista todas as empresas
 router.post('/empresa', middleware.Autorizacao, empresa.salvar);        // salvar empresa
 router.put('/empresa/:id', middleware.Autorizacao, empresa.alterar);        // alterar empresas

@@ -22,11 +22,11 @@
       <a href="/" class="h1"><b>Fox</b>sistema</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Faça login para iniciar sua sessão</p>
-
-      <form action="" method="post">
+      <p class="login-box-msg">Faça login para iniciar sua sessão</p>        
+      <p style="color: rgb(112, 1, 1);" class="login-box-msg"> <%= error %> </p>
+      <form action="/login/autenticar" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" name="email" class="form-control" placeholder="Email" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,21 +34,19 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" name="senha" class="form-control" placeholder="Senha" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
-        </div>      
-      </form>
-
+        </div> 
       <div class="social-auth-links text-center mt-2 mb-3">
-        <a href="#" class="btn btn-block btn-primary">
+        <button type="submit" class="btn btn-block btn-primary">
           <i ></i> Entrar
-        </a>      
+        </button>      
       </div>      
-   
+    </form>
     </div>
     <!-- /.card-body -->
   </div>

@@ -61,6 +61,20 @@ class empresaController {
     }
   }
 
+  async autenticar(req, res) {
+    try {
+      var dados = {
+        'senha': req.body.senha,
+        'email': req.body.email        
+      }
+      var dados = await empresa.autenticar(dados);
+      return res.status(201).json(dados);
+    } catch (error) {
+      console.log(error);
+      return res.status(400).json({ error: error.error });
+    }
+  }
+
 }
 
 

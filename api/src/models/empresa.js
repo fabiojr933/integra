@@ -35,6 +35,17 @@ class Empresa {
         });
         return dados;
     }
+    async autenticar(dados) {
+        var dados2 = {};
+        const data = await knex('empresa').select('*').where({ email: dados.email }).first();   
+        if (data == undefined) {
+            return dados2 = { error: 'email não cadastrado' };
+        } if (data.senha == dados.senha) {
+            return dados2 = { sucesso: 'ok', ...data  };
+        } else {
+            return dados2 = { error: 'senha invalido'};
+        }
+    }
 
 }
 
