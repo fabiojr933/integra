@@ -34,24 +34,28 @@
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
-                      <th>Task</th>
+                      <th>Nome</th>
+                      <th>Email</th>
+                      <th>Instance</th>
                       <th style="width: 40px">Editar</th>
                       <th style="width: 40px">Excluir</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>1.</td>
-                      <td>Update software</td>
-                      <td> <a href="/empresa/editar"><span class="badge bg-warning">Editar</span></a></td>
-                      <td> <a href="/empresa/excluir"><span class="badge bg-danger">Excluir</span></a></td>
-                    </tr>
-                    <tr>
-                      <td>1.</td>
-                      <td>Update software</td>
-                      <td> <a href="/empresa/editar"><span class="badge bg-warning">Editar</span></a></td>
-                      <td> <a href="/empresa/excluir"><span class="badge bg-danger">Excluir</span></a></td>
-                    </tr>
+                  <tbody>                   
+                 
+                    <% dados.forEach(function(data) { %>
+                      <tr>
+                        <td><%= data.id %></td>
+                        <td><%= data.nome %></td>
+                        <td><%= data.email %></td>
+                        <td><%= data.instance %></td>
+                        <td><a href="/empresa/editar"><span class="badge bg-warning">Editar</span></a></td>
+                        <td><a href="/empresa/excluir/<%= data.id %>"><span class="badge bg-danger">Excluir</span></a></td>
+
+                      </tr>
+                      <% }); %>
+                      
+
                   </tbody>
                 </table>
               </div>           

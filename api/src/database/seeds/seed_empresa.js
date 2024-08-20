@@ -7,7 +7,7 @@ exports.seed = async function (knex) {
   await knex('empresa').del()
   await knex('empresa').insert([
     { nome: 'SUPERVISOR', 
-      email: 'supervisor%foxsistema.com.br',
+      email: 'supervisor@foxsistema.com.br',
       telefone: '66999539490',
       instance: 'Fox Sistemas',
       apikey: 'hfsgsdcdcsd8r4fv5fvdfv56d4rver',
