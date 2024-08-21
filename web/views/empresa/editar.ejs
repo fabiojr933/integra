@@ -33,17 +33,18 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="/empresa/atualizar" method="post">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
                     <label for="">Nome da empresa</label>
-                    <input type="text" name="nome" class="form-control"  placeholder="nome da empresa" required>
+                    <input type="text" name="nome" class="form-control" value="<%= dados[0].nome %>"  placeholder="nome da empresa" required>
+                    <input type="hidden" name="id" class="form-control" value="<%= dados[0].id %>"  required>
                   </div>
                   <div class="col">
                   <div class="form-group">
                     <label for="">Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                    <input type="email" name="email" class="form-control" value="<%= dados[0].email %>" placeholder="Email" required />
                   </div>
                 </div>
                 </div>
@@ -51,12 +52,12 @@
                 <div class="row">
                   <div class="col">
                   <label for="">Telefone</label>
-                  <input type="text" name="telefone" class="form-control"  placeholder="Telefone" required>
+                  <input type="text" name="telefone" class="form-control" value="<%= dados[0].telefone %>"  placeholder="Telefone" required>
                 </div>
                 <div class="col">
                 <div class="form-group">
                   <label for="">Instance</label>
-                  <input type="text" name="instance" class="form-control" placeholder="Instance" required>
+                  <input type="text" name="instance" class="form-control" value="<%= dados[0].instance %>" placeholder="Instance" required>
                 </div>
               </div>
               </div>
@@ -64,26 +65,26 @@
               <div class="row">
                 <div class="col">
                 <label for="">API key</label>
-                <input type="text" name="apikey" class="form-control"  placeholder="API key" required>
+                <input type="text" name="apikey" class="form-control" value="<%= dados[0].apikey %>" placeholder="API key" required>
               </div>
               <div class="col">
               <div class="form-group">
                 <label for="">Base url</label>
-                <input type="text" name="base_url" class="form-control" placeholder="Base url" required>
+                <input type="text" name="base_url" class="form-control" value="<%= dados[0].base_url %>" placeholder="Base url" required>
               </div>
             </div>
           </div>
             <div class="row">
               <div class="col">
               <label for="">Senha</label>
-              <input type="text" name="senha" class="form-control"  placeholder="Senha" required>
+              <input type="password" name="senha" class="form-control" value="<%= dados[0].senha %>" placeholder="Senha" required>
             </div>
             <div class="col">
             <div class="form-group">
               <label for="">Ativo</label>
-              <select class="form-control select2" name="ativo" style="width: 100%;" required>              
-                <option>Sim</option>
-                <option>Não</option>               
+              <select class="form-control select2" name="ativo" style="width: 100%;" required>                
+                  <option value="Sim" <%= dados[0].nome === 'Sim' ? 'selected' : '' %>>Sim</option>
+                  <option value="Não" <%= dados[0].nome === 'Não' ? 'selected' : '' %>>Não</option>  
               </select>
             </div>
           </div>  

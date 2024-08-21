@@ -18,11 +18,11 @@ class Empresa {
         return response.data;
     }
 
-    
+
     async ListaAll() {
         const response = await axios({
             method: 'GET',
-            url: api.base_url + '/empresa',           
+            url: api.base_url + '/empresa',
             headers: {
                 'Content-Type': 'application/json',
                 'apikey': process.env.APIKEY,  // Enviando a API key no cabeçalho x-api-key
@@ -34,7 +34,7 @@ class Empresa {
     async Excluir(id) {
         const response = await axios({
             method: 'DELETE',
-            url: api.base_url + '/empresa/' + id,           
+            url: api.base_url + '/empresa/' + id,
             headers: {
                 'Content-Type': 'application/json',
                 'apikey': process.env.APIKEY,  // Enviando a API key no cabeçalho x-api-key
@@ -43,6 +43,30 @@ class Empresa {
         return response.data;
     }
 
+    async Editar(id) {
+        const response = await axios({
+            method: 'GET',
+            url: api.base_url + '/empresa/' + id,
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': process.env.APIKEY,  // Enviando a API key no cabeçalho x-api-key
+            }
+        });
+        return response.data;
+    }
+
+    async Atualizar(dados, id) {
+        const response = await axios({
+            method: 'PUT',
+            url: api.base_url + '/empresa/' + id,
+            data: dados,
+            headers: {
+                'Content-Type': 'application/json',
+                'apikey': process.env.APIKEY,  // Enviando a API key no cabeçalho x-api-key
+            }
+        });
+        return response.data;
+    }
 
 }
 

@@ -51,11 +51,15 @@ router.get('/lista', async (req, res) => {
   }
 });
 
-router.get('/editar', (req, res) => {
+router.get('/editar/:id', async (req, res) => {
   try {
+    var id = req.params.id;
     const nome = req.session.empresa;
     if (nome) {
-      res.render('empresa/editar', { empresa: nome.nome });
+      var empresa = new Empresa();
+      const response = await empresa.Editar(id);
+      console.log(response);
+      res.render('empresa/editar', { empresa: nome.nome, dados: response });
     } else {
       res.render('login', { error: 'Faça login' });
     }
@@ -73,6 +77,28 @@ router.post('/salvar', async (req, res) => {
   } catch (error) {
     console.error('Erro:', error);
     res.status(500).send('Erro ao excluir empresa.');
+  }
+});
+
+router.post('/atualizar', async (req, res) => {
+  try {
+    var dados = {
+      'nome': req.body.nome,
+      'email': req.body.email,
+      'telefone': req.body.telefone,
+      'instance': req.body.instance,
+      'apikey': req.body.apikey,
+      'base_url': req.body.base_url,
+      'senha': req.body.senha,
+      'ativo': req.body.ativo,
+    }
+    var id = req.body.id;
+    var empresa = new Empresa();
+    const response = await empresa.Atualizar(dados, id);
+    res.redirect('/empresa/lista');
+  } catch (error) {
+    console.error('Erro:', error);
+    res.status(500).send('Erro ao atualizar empresa.');
   }
 });
 

@@ -18,7 +18,7 @@ app.use(session({
   secret: 'seu-segredo-aqui',  // Chave usada para assinar o ID da sessão
   resave: false,               // Não salva a sessão novamente se ela não foi modificada
   saveUninitialized: true,     // Salva a sessão nova, mesmo se ela estiver vazia
-  //  cookie: { maxAge: 900000 }    // Define o tempo de expiração do cookie de sessão (em milissegundos)
+  cookie: { maxAge: 1800000 }    // Define o tempo de expiração do cookie de sessão (em milissegundos)
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
