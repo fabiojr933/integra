@@ -9,6 +9,7 @@ exports.up = async (knex) => {
         t.string('base_url').notNull();
         t.string('senha', 120).notNull();
         t.string('ativo', 20).notNull();
+        t.text('qrcode');
     });
 };
 
