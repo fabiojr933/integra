@@ -33,27 +33,30 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="/produto/atualizar" method="post">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                    <label for="">Nome do produto</label>
-                    <input type="text" name="nome" class="form-control"  placeholder="nome da empresa" required>
+                    <label for="">Nome da empresa</label>
+                    <input type="text" name="nome" class="form-control" value="<%= dados[0].nome %>"  placeholder="nome da empresa" required>
+                    <input type="hidden" name="id_empresa" class="form-control" value="<%= dados[0].id_empresa %>"  required>
+                    <input type="hidden" name="id" class="form-control" value="<%= dados[0].id %>"  required>
                   </div>
                   <div class="col">
                   <div class="form-group">
-                    <label for="">Valor</label>
-                    <input type="text" name="preco" class="form-control" placeholder="Preço" required>
+                    <label for="">Preço</label>
+                    <input type="text" name="preco" class="form-control" value="<%= dados[0].preco %>" placeholder="Preço" required />
                   </div>
                 </div>
-                </div>            
-           
+                </div>              
+
+            <div class="row">             
             <div class="col">
             <div class="form-group">
               <label for="">Ativo</label>
-              <select class="form-control select2" name="ativo" style="width: 100%;" required>              
-                <option>Sim</option>
-                <option>Não</option>               
+              <select class="form-control select2" name="ativo" style="width: 100%;" required>                
+                  <option value="Sim" <%= dados[0].ativo === 'Sim' ? 'selected' : '' %>>Sim</option>
+                  <option value="Não" <%= dados[0].ativo === 'Não' ? 'selected' : '' %>>Não</option>  
               </select>
             </div>
           </div>  
@@ -61,7 +64,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
               </form>
             </div>

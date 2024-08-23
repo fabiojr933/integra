@@ -17,6 +17,7 @@ router.delete('/empresa/:id', middleware.Autorizacao, empresa.excluir);     // e
 
 
 router.get('/produto', middleware.Autorizacao, produto.produtoLista);   // lista todas as produto
+router.get('/produto_empresa/:id', middleware.Autorizacao, produto.produtoListaEmpresa);   // lista todas as produto
 router.post('/produto', middleware.Autorizacao, produto.salvar);        // salvar produto
 router.get('/produto/:id', middleware.Autorizacao, produto.listar_id);  // lista todas as produto
 router.put('/produto/:id', middleware.Autorizacao, produto.alterar);        // alterar produto

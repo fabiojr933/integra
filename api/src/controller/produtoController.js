@@ -9,6 +9,13 @@ class produtoController {
     });
   };
 
+  async produtoListaEmpresa(req, res) {
+    var id_empresa = req.params.id;
+    produto.ProdutoAllEmpresa(id_empresa).then((result) => {
+      res.status(200).json(result);
+    });
+  };
+
   async salvar(req, res) {
     try {
       var dados = {

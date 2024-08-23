@@ -7,9 +7,9 @@ router.get('/index', async (req, res) => {
     const nome = req.session.empresa;
     console.log(nome)
     if (nome) {
-      res.render('telefone/index', { empresa: nome.nome, qrcode: nome.qrcode });
+      res.render('telefone/index', { empresa: nome.nome, qrcode: nome.qrcode, telefone: 'Aparelho já está conectado com sucesso' });
     } else {
-      res.render('login', { error: 'Faça login' });
+      return res.render('login', { error: 'Faça login' });
     }
   } catch (error) {
     console.error('Erro:', error);
@@ -23,24 +23,26 @@ router.get('/conexao', async (req, res) => {
     if (nome) {
       var telefone = new Telefone();
       const response = await telefone.Conn(nome);
-      if (response.instance.state == 'open') {
-        res.render('telefone/index', { empresa: nome.nome, telefone: 'Aparelho já está conectado com sucesso', qrcode: nome.qrcode });
-      } if (response.instance.state == 'close') {
+      if (response.instance.state === 'open') {
+      return res.redirect('/telefone/index');
+      } 
+      if (response.instance.state === 'close') {
         var fora = '/dist/img/whatsapp-fora-do-ar.webp';
-        res.render('telefone/index', { empresa: nome.nome, telefone: 'Aparelho não esta conectado \n Por favor clique em Gerar Qrcode', qrcode: fora });
-      } if (response.instance.state == 'connecting') {
+        return res.render('telefone/index', { empresa: nome.nome, telefone: 'Aparelho não esta conectado \n Por favor clique em Gerar Qrcode', qrcode: fora });
+      } 
+      if (response.instance.state === 'connecting') {
         const response = await telefone.Qrcode(nome);
         var data = { 'qrcode': response.base64 };
         await telefone.SalvarQrcode(nome.id, data);
-        res.render('telefone/index', { empresa: nome.nome, telefone: 'Qrcode gerado com sucesso! escanea o QRCODE', qrcode: response.base64 });
+        return res.render('telefone/index', { empresa: nome.nome, telefone: 'Qrcode gerado com sucesso! escanea o QRCODE', qrcode: response.base64 });
       } else {
         const response = await telefone.Qrcode(nome);
         var data = { 'qrcode': response.base64 };
         await telefone.SalvarQrcode(nome.id, data);
-        res.render('telefone/index', { empresa: nome.nome, telefone: 'Qrcode gerado com sucesso! escanea o QRCODE', qrcode: response.base64 });
+        return res.render('telefone/index', { empresa: nome.nome, telefone: 'Qrcode gerado com sucesso! escanea o QRCODE', qrcode: response.base64 });
       }
     } else {
-      res.render('login', { error: 'Faça login' });
+      return res.render('login', { error: 'Faça login' });
     }
   } catch (error) {
     console.error('Erro:', error);

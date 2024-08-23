@@ -26,28 +26,29 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Produto novo</h3>
+                <h3 class="card-title">Cadastro de produto</h3>
                 <div style="margin-left: 91%;">
                   <a href="/produto/lista"><span class="btn bg-primary">Voltar</span></a>
                 </div>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="/produto/salvar" method="post">
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                    <label for="">Nome do produto</label>
-                    <input type="text" name="nome" class="form-control"  placeholder="nome da empresa" required>
+                    <label for="">Nome da produto</label>
+                    <input type="text" name="nome" class="form-control"  placeholder="nome da produto" required>
+                    <input type="hidden" name="id_empresa" class="form-control" value="<%= id_empresa %>"  placeholder="nome da produto" required>
                   </div>
                   <div class="col">
                   <div class="form-group">
-                    <label for="">Valor</label>
+                    <label for="">Preço</label>
                     <input type="text" name="preco" class="form-control" placeholder="Preço" required>
                   </div>
                 </div>
-                </div>            
-           
+                </div>
+                              
             <div class="col">
             <div class="form-group">
               <label for="">Ativo</label>
@@ -61,7 +62,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
               </form>
             </div>

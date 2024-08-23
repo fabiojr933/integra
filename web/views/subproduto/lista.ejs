@@ -3,76 +3,77 @@
 
 <%- include('../partials/head') %>
 
-  <body class="hold-transition sidebar-mini">
-    <!-- Site wrapper -->
-    <div class="wrapper">
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
 
-      <!-- /.navbar -->
-      <%- include('../partials/header') %>
+    <!-- /.navbar -->
+  <%- include('../partials/header') %>
 
-        <%- include('../partials/sidebar') %>
+  <%- include('../partials/sidebar') %>
 
 
-          <!-- Content Wrapper. Contains page content -->
-          <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-              <div class="container-fluid">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
 
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="card">
-                      <div class="card-header">
-                        <h3 class="card-title">Bordered Table</h3>
-                        <div style="margin-left: 91%;">
-                          <a href="/subproduto/novo"><span class="btn bg-primary">Novo</span></a>
-                        </div>
-                      </div>
-                      <!-- /.card-header -->
-                      <div class="card-body">
-                        <table class="table table-bordered">
-                          <thead>
-                            <tr>
-                              <th style="width: 10px">#</th>
-                              <th>Task</th>
-                              <th style="width: 40px">Editar</th>
-                              <th style="width: 40px">Excluir</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>1.</td>
-                              <td>Update software</td>
-                              <td> <a href="/subproduto/editar"><span class="badge bg-warning">Editar</span></a></td>
-                              <td> <a href="/subproduto/excluir"><span class="badge bg-danger">Excluir</span></a></td>
-                            </tr>
-                            <tr>
-                              <td>1.</td>
-                              <td>Update software</td>
-                              <td> <a href="/subproduto/editar"><span class="badge bg-warning">Editar</span></a></td>
-                              <td> <a href="/subproduto/excluir"><span class="badge bg-danger">Excluir</span></a></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Bordered Table</h3>
+                <div style="margin-left: 91%;">
+                  <a href="/subproduto/novo"><span class="btn bg-primary">Novo</span></a>
                 </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Nome</th>
+                      <th>Preço</th>
+                      <th style="width: 40px">Editar</th>
+                      <th style="width: 40px">Excluir</th>
+                    </tr>
+                  </thead>
+                  <tbody>                   
+                 
+                    <% dados.forEach(function(data) { %>
+                      <tr>
+                        <td><%= data.id %></td>
+                        <td><%= data.nome %></td>
+                        <td><%= data.preco %></td>
+                        <td><a href="/subproduto/editar/<%= data.id %>"><span class="badge bg-warning">Editar</span></a></td>
+                        <td><a href="/subproduto/excluir/<%= data.id %>"><span class="badge bg-danger">Excluir</span></a></td>
 
-              </div><!-- /.container-fluid -->
-            </section>
-          </div>
-          <!-- /.content-wrapper -->
-          <%- include('../partials/footer') %>
+                      </tr>
+                      <% }); %>
+                      
 
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-              <!-- Control sidebar content goes here -->
-            </aside>
-            <!-- /.control-sidebar -->
-    </div>
-    <!-- ./wrapper -->
-    <%- include('../partials/scripts') %>
-  </body>
+                  </tbody>
+                </table>
+              </div>           
+            </div>
+          </div>         
+        </div>      
+             
+      </div><!-- /.container-fluid -->
+    </section>
+  </div>
+  <!-- /.content-wrapper -->
+  <%- include('../partials/footer') %>
 
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+<%- include('../partials/scripts') %>
+</body>
 </html>

@@ -36,6 +36,14 @@ class Produto {
         return dados;
     }
 
+    async ProdutoAllEmpresa(id_empresa) {
+        var dados = {};
+        await knex('produto').where({ id_empresa: id_empresa }).select('*').then((resposta) => {
+            dados = resposta;
+        });
+        return dados;
+    }
+
 }
 
 module.exports = Produto;
