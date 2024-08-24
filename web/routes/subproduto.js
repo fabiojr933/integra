@@ -71,6 +71,8 @@ router.get('/editar/:id', async (req, res) => {
 router.post('/salvar', async (req, res) => {
   try {
     var subproduto = new Subproduto();
+    console.log(req.body);
+  //  Excluir;
     const response = await subproduto.Salvar(req.body);
     return res.redirect('/subproduto/lista');
   } catch (error) {

@@ -16,7 +16,7 @@ class subprodutoController {
         'ativo': req.body.ativo,
         'preco': req.body.preco,
         'id_empresa': req.body.id_empresa,
-        'id_produto': req.body.id_empresa
+        'id_produto': req.body.id_produto
       }
       var dados = await subproduto.Salvar(dados);
       return res.status(201).json(dados);
